@@ -1,0 +1,81 @@
+﻿@model mvcproject.Models.adminregister
+@{
+    ViewBag.Title = "register_pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+<div>
+    @using(Html.BeginForm("register_click","adminreg",FormMethod.Post))
+
+			{
+    <table border-spacing:10px>
+        <tr>
+            <th><label>Name:</label></th>
+            <td>
+                @Html.TextBoxFor(m => m.name)
+                @Html.ValidationMessageFor(m => m.name)
+            </td>
+        </tr>
+
+        <tr></tr>
+
+        <tr>
+            <th><label>Address:</label></th>
+            <td>
+                @Html.TextBoxFor(m => m.address)
+                @Html.ValidationMessageFor(m => m.address)
+
+            </td>
+        </tr>
+        <tr></tr>
+
+        <tr>
+            <th><label>Email:</label></th>
+            <td>
+                @Html.TextBoxFor(m => m.email)
+                @Html.ValidationMessageFor(m => m.email)
+
+            </td>
+        </tr>
+        <tr></tr>
+
+        <tr>
+            <th><label>Username:</label></th>
+            <td>
+                @Html.TextBoxFor(m => m.username)
+                @Html.ValidationMessageFor(m => m.username)
+
+            </td>
+        </tr>
+        <tr></tr>
+
+        <tr>
+            <th><label>Password:</label></th>
+            <td>
+                @Html.PasswordFor(m => m.password)
+                @Html.ValidationMessageFor(m => m.password)
+
+            </td>
+        </tr>
+        <tr></tr>
+
+        <tr>
+            <th><label>Confirm Password:</label></th>
+            <td>
+                @Html.PasswordFor(m => m.confirmpassword)
+                @Html.ValidationMessageFor(m => m.confirmpassword)
+
+            </td>
+        </tr>
+        <tr></tr>
+
+
+     </table>
+     <div>
+         <input type="submit" value="Register"/>
+         @Html.DisplayFor(m=>m.msg)
+     </div>
+			}
+</div>
+

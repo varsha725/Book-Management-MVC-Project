@@ -1,0 +1,48 @@
+﻿@model mvcproject.Models.userpwd
+@{
+    ViewBag.Title = "pwd_load";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Change Password</h2>
+<div>
+    @using(Html.BeginForm("pwd_click","changepwd",FormMethod.Post))
+     {
+
+    <div>
+        <label>Current password</label>
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.oldpassword)
+    </div>
+    <div>
+        <label>New password</label>
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.newpassword)
+        @Html.ValidationMessageFor(m => m.newpassword)
+    </div>
+    <div>
+        <label>confirm password</label>
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.confirmpassword)
+        @Html.ValidationMessageFor(m => m.confirmpassword)
+    </div>
+    <div>
+        <input type="submit" value="Reset password" />
+        @Html.DisplayFor(m => m.msg)
+    </div>
+    <div>
+        @Html.ActionLink("Back to Home", "home", "dblogin")
+    </div>
+    }
+
+
+
+
+
+
+</div>
+
+

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<mvcproject.bookk>
+@{
+    ViewBag.Title = "home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>home</h2>
+<div>
+    @using(Html.BeginForm("home","dblogin",FormMethod.Get))
+			{
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(m => m.bookname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.author)
+
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.price)
+                </th>
+            </tr>
+            @foreach(var item in Model)
+				{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelitem => item.bookname)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelitem => item.author)
+            </td>
+
+            <td>
+                <img src="@Url.Content(item.image)" alt="image" height="150px" width="150px" />
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelitem => item.price)
+            </td>
+
+
+
+        </tr>
+				}
+        </table>
+
+
+			}
+</div>
+<div>
+    @Html.ActionLink("Add Books", "book_load", "addbook")
+
+</div>
+
+<div>
+    @Html.ActionLink("Change Password", "pwd_load", "changepwd")
+
+</div>
+
+ 

@@ -1,0 +1,56 @@
+﻿@model mvcproject.Models.bookinsert
+@{
+    ViewBag.Title = "book_load";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Book</h2>
+<div>
+    @using (Html.BeginForm("book_click", "addbook", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label>Book Name:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.bookname)
+            @Html.ValidationMessageFor(m => m.bookname)
+        </div>
+
+        <div>
+            <label>Book Author:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.author)
+            @Html.ValidationMessageFor(m => m.author)
+        </div>
+
+        <div>
+            <label>Image:</label>
+        </div>
+        <div>
+            @Html.TextBox("file", "", new { Type = "file" })
+        </div>
+
+        <div>
+            <label>Book Price:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.price)
+            @Html.ValidationMessageFor(m => m.price)
+        </div>
+
+        <div>
+            @Html.DisplayFor(m=>m.msg)
+        </div>
+
+        <div>
+            <input type="submit" value="Add"/>
+        </div>
+
+        <div>
+            @Html.ActionLink("Back To Home","home","dblogin")
+        </div>
+
+
+    }
+</div>
